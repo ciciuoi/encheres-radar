@@ -1,17 +1,16 @@
-# Enchères Radar V3
+# Enchères Radar V4 — mode swipe
 
-Application PWA locale, déployable sur GitHub Pages.
+Application PWA locale pour Android/Chrome. Préserve la clé `encheres-radar-v1-lots` de V1–V3.
 
-## Critères
-- Budget total maximal : 500 € (enchère + frais acheteur + frais fixes + frais de revente).
-- Bénéfice estimé minimal : 100 €.
-- La valeur de revente est une hypothèse à documenter, pas une estimation automatique.
+## Mode Découvrir
+- Glisser vers la droite ou appuyer sur ♥ pour garder (favoris + À surveiller).
+- Glisser vers la gauche ou appuyer sur ✕ pour écarter.
+- ↶ annule la dernière décision de la session.
+- Fiche : coût total, prix d’enchère, valeur de revente supposée, bénéfice, ROI, prix maximal pour 100 € de gain.
+- Filtre initial : coût total ≤ 500 € et bénéfice estimé ≥ 100 €. Bouton « Tout examiner » pour afficher le reste.
+- Si aucune fiche, ajouter un lot, importer un fichier ou charger des exemples fictifs.
 
-## Détection de lots
-Importer un CSV ou JSON de lots obtenu légalement, avec les colonnes du modèle téléchargeable dans l’onglet Sources. L’application déduplique les lots et classe les opportunités. Elle ne scrappe pas les sites d’enchères et ne fonctionne pas comme un robot de surveillance autonome.
+Les résultats reposent sur **les estimations saisies/importées**, pas sur une estimation automatique fiable des prix du marché. Pas de recherche automatisée sur des plateformes ni d'enchères placées automatiquement.
 
-## Déploiement Android
-Remplacer les fichiers du dépôt GitHub Pages par ceux du ZIP. Rafraîchir Chrome. Exporter une sauvegarde JSON avant la mise à jour.
-
-## Limites
-Stockage localStorage propre au navigateur, risque de perte si données du site effacées. Aucun ordre d'enchère. Calculs indicatifs hors fiscalité et frais non renseignés.
+## Déploiement
+Envoyer les six fichiers **à la racine** du dépôt GitHub Pages existant. Sauvegarder JSON avant remplacement. Le lien du site ne change pas. L'ancienne PWA peut afficher une version en cache : actualiser et vérifier le libellé 4.0.
