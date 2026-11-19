@@ -1,16 +1,11 @@
-# Enchères Radar V4 — mode swipe
+# Enchères Radar V5 — recherche configurable + swipe
 
-Application PWA locale pour Android/Chrome. Préserve la clé `encheres-radar-v1-lots` de V1–V3.
+Fonctionnel : swipe V4, données V1–V4 conservées, budget total 500 €, bénéfice prévisionnel minimal 100 €, stockage local, export et restauration JSON, import CSV/JSON, URLs HTTPS de flux CSV ou JSON accessibles en CORS, dédoublonnage, actualisation manuelle et automatique toutes les 15 minutes quand la page est ouverte.
 
-## Mode Découvrir
-- Glisser vers la droite ou appuyer sur ♥ pour garder (favoris + À surveiller).
-- Glisser vers la gauche ou appuyer sur ✕ pour écarter.
-- ↶ annule la dernière décision de la session.
-- Fiche : coût total, prix d’enchère, valeur de revente supposée, bénéfice, ROI, prix maximal pour 100 € de gain.
-- Filtre initial : coût total ≤ 500 € et bénéfice estimé ≥ 100 €. Bouton « Tout examiner » pour afficher le reste.
-- Si aucune fiche, ajouter un lot, importer un fichier ou charger des exemples fictifs.
+**IMPORTANT** : aucun flux actif de plateforme n'est préconfiguré, faute d'API publique de lots actuels autorisée et vérifiée. Le logiciel ne scrape pas Interencheres, Drouot ou Domaine. Les boutons ouvrent des recherches sur ces sites. Le moteur automatique n'importe de vraies annonces que si l'utilisateur ajoute un flux autorisé et compatible navigateur. Les valeurs de revente manquantes sont mises « À estimer » et ne sont pas classées comme bonnes affaires. Même renseignée, la valeur de revente n'est pas vérifiée automatiquement.
 
-Les résultats reposent sur **les estimations saisies/importées**, pas sur une estimation automatique fiable des prix du marché. Pas de recherche automatisée sur des plateformes ni d'enchères placées automatiquement.
+Schéma JSON exemple : `[ {"name":"Perceuse X","bid":80,"category":"Outillage","source":"Flux autorisé","reference":"123","url":"https://exemple.fr/lot/123","fee":25,"fixed":10,"resale":10,"value":0} ]`. Pour une estimation documentée, renseigner `value` et les sources en `notes`. Les fichiers doivent être conformes aux règles d'usage du diffuseur et servir des entêtes CORS autorisant l'origine GitHub Pages.
 
-## Déploiement
-Envoyer les six fichiers **à la racine** du dépôt GitHub Pages existant. Sauvegarder JSON avant remplacement. Le lien du site ne change pas. L'ancienne PWA peut afficher une version en cache : actualiser et vérifier le libellé 4.0.
+Installation : sauvegarder ses données avec Réglages → Sauvegarder JSON ; remplacer les six fichiers de la racine du dépôt GitHub Pages. Vérifier Version 5.0 et recharger. Sans serveur, l'application ne recherche pas lorsque Chrome est fermé.
+
+Tests : contrôle syntaxique de app.js, contrôle d'intégration navigateur Chromium et tests du connecteur par flux JSON simulé (voir rapport de test lors de la livraison).
